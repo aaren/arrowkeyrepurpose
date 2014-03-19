@@ -10,7 +10,7 @@ For most vim versions. Help file last change: 2014-03-18
 CONTENTS                                          *ArrowKeyRepurpose-contents*
     1. Intro                         |ArrowKeyRepurpose|
     2. Mappings                      |ArrowKeyRepurpose-mappings|
-    5. License                       |ArrowKeyRepurpose-license|
+    3. License                       |ArrowKeyRepurpose-license|
 
 ==============================================================================
 
