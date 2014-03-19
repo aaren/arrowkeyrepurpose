@@ -1,0 +1,99 @@
+*ArrowKeyRepurpose.txt* Tiny plugin for repurposing the arrow keys.
+For most vim versions. Help file last change: 2014-03-18
+
+------------------------------------------------------------------------------
+
+                              Arrow Key Repurpose
+                        For repurposing the arrow keys.
+
+==============================================================================
+CONTENTS                                          *ArrowKeyRepurpose-contents*
+    1. Intro                         |ArrowKeyRepurpose|
+    2. Mappings                      |ArrowKeyRepurpose-mappings|
+    5. License                       |ArrowKeyRepurpose-license|
+
+==============================================================================
+
+INTRODUCTION                                               *ArrowKeyRepurpose*
+
+A small simple plugin for repurposing the arrow keys in Vim. Taken from some
+blog somewhere, which was in turn taken from an older version of
+this page:
+
+	http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
+
+on the vim wiki, then modified by myself for my own purposes.
+
+This plugin is meant mostly to serve myself, but I’m making it public in case
+someone else wants to use it. It’s a bit easier then telling others to make
+their own pseudo-plugin, or worse things, like just sticking the code into
+their vimrc.
+
+It's worth noting that I still keep my hands on the home row, even while
+using these mappings, by use of a Windows program called touchcursor, found
+here:
+
+	http://touchcursor.sourceforge.net/
+
+------------------------------------------------------------------------------
+MAPPINGS                                          *ArrowKeyRepurpose-mappings*
+
+<Left>
+		unindents current line or selection by one level. Just a remap
+		of Vim's <
+
+<Right>
+		indents current line or selection by one level. Just a remap
+		of Vim's >
+
+<Up>
+		If the line above the current cursor position or selection is
+		empty (or contains only white space), deletes it.
+
+<Down>
+		Adds an empty line below the current cursor position or
+		selection.
+
+<S-Up>
+		If the line below the current cursor position or selection is
+		empty (or contains only white space), deletes it.
+
+<S-Down>
+		Adds an empty line below the current cursor position or
+		selection.
+
+------------------------------------------------------------------------------
+LICENSE                                            *ArrowKeyRepurpose-license*
+
+Due to the origins of this code, I cannot be totally certain what license it
+falls under (I suppose that information could be found by digging around on the
+vim wiki as linked to above, in the introductory section of this documentation,
+but eh).
+
+Insofar as I have some purview in regard to licensing, I'm placing whatever
+portion I am legally able to under the MIT license, as follows:
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Tim Holt (atimholt@gmail.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+------------------------------------------------------------------------------
+
+ vim:tw=78:ts=8:ft=help:norl:
