@@ -62,6 +62,14 @@ MAPPINGS                                          *ArrowKeyRepurpose-mappings*
 		Adds an empty line below the current cursor position or
 		selection.
 
+<S-Left>
+		Decrease current window width by N (default 1). Just a remap
+		of Vim's 'CTRL-W <'
+
+<S-Right>
+		Increase current window width by N (default 1). Just a remap
+		of Vim's 'CTRL-W >'
+
 ------------------------------------------------------------------------------
 LICENSE                                            *ArrowKeyRepurpose-license*
 
