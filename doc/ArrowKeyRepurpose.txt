@@ -24,6 +24,12 @@ this page:
 
 on the vim wiki, then modified by myself for my own purposes.
 
+This plugin is mostly for shifting your text around. Up and down move the
+current line thusly by adding and removing empty lines from above it, and shift
+plus up and down will add and remove empty lines below. Right and left unifies
+Vim's built-in mappings for indenting and unindenting in normal, visual, and
+insert mode.
+
 This plugin is meant mostly to serve myself, but I’m making it public in case
 someone else wants to use it. It’s a bit easier then telling others to make
 their own pseudo-plugin, or worse things, like just sticking the code into
