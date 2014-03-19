@@ -39,12 +39,12 @@ here:
 MAPPINGS                                          *ArrowKeyRepurpose-mappings*
 
 <Left>
-		unindents current line or selection by one level. Just a remap
-		of Vim's '<'
+		Unindents current line or selection by one level. Works in
+                normal, visual, and insert mode.
 
 <Right>
-		indents current line or selection by one level. Just a remap
-		of Vim's '>'
+		Indents current line or selection by one level. Works in
+                normal, visual, and insert mode. 
 
 <Up>
 		If the line above the current cursor position or selection is
