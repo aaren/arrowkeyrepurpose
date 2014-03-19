@@ -40,11 +40,11 @@ MAPPINGS                                          *ArrowKeyRepurpose-mappings*
 
 <Left>
 		unindents current line or selection by one level. Just a remap
-		of Vim's <
+		of Vim's '<'
 
 <Right>
 		indents current line or selection by one level. Just a remap
-		of Vim's >
+		of Vim's '>'
 
 <Up>
 		If the line above the current cursor position or selection is
