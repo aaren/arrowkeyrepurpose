@@ -1,0 +1,3 @@
+grok the code, change what needs changing.
+Add options (toggle features, etc.)
+use such functions as foldclosed() & foldclosedend() to deal with closed folds.
