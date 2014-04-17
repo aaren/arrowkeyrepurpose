@@ -1,16 +1,30 @@
-*ArrowKeyRepurpose.txt* Tiny plugin for repurposing the arrow keys.
-For most vim versions. Help file last change: 2014-03-18
+*ArrowKeyRepurpose.txt* For repurposing the arrow keys.
+For most vim versions. Help file last change: 2014-04-17
 
 ------------------------------------------------------------------------------
+               ___                                  __ __                    ~
+              /   |  ______________ _      __      / //_/__  __  __          ~
+             / /| | / ___/ ___/ __ \ | /| / /_____/ ,< / _ \/ / / /          ~
+            / ___ |/ /  / /  / /_/ / |/ |/ /_____/ /| /  __/ /_/ /           ~
+           /_/  |_/_/  /_/   \____/|__/|__/     /_/ |_\___/\__, /            ~
+                 ____                                     /____/             ~
+                / __ \___  ____  __  ___________  ____  ________             ~
+               / /_/ / _ \/ __ \/ / / / ___/ __ \/ __ \/ ___/ _ \            ~
+              / _, _/  __/ /_/ / /_/ / /  / /_/ / /_/ (__  )  __/            ~
+             /_/ |_|\___/ .___/\__,_/_/  / .___/\____/____/\___/             ~
+                       /_/              /_/                                  ~
 
-                              Arrow Key Repurpose
-                        For repurposing the arrow keys.
+           'Cause this plugin totally calls for elaborate ascii art
+
+				 version 1.0
 
 ==============================================================================
 CONTENTS                                          *ArrowKeyRepurpose-contents*
     1. Intro                         |ArrowKeyRepurpose|
     2. Mappings                      |ArrowKeyRepurpose-mappings|
-    3. License                       |ArrowKeyRepurpose-license|
+    3. Settings                      |ArrowKeyRepurpose-settings|
+    4. Changelog                     |ArrowKeyRepurpose-changelog|
+    5. License                       |ArrowKeyRepurpose-license|
 
 ==============================================================================
 
@@ -22,18 +36,18 @@ this page:
 
 	http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
 
-on the vim wiki, then modified by myself for my own purposes.
+on the vim wiki, then modified and improved by myself.
 
 This plugin is mostly for shifting your text around. Up and down move the
-current line thusly by adding and removing empty lines from above it, and shift
-plus up and down will add and remove empty lines below. Right and left unifies
-Vim's built-in mappings for indenting and unindenting in normal, visual, and
-insert mode.
+current line/selection thusly by adding and removing empty lines from above
+it, and shift plus up and down will add and remove empty lines below. Right
+and left unifies Vim's built-in mappings for indenting and unindenting in
+normal, visual, and insert mode.
 
-This plugin is meant mostly to serve myself, but I’m making it public in case
-someone else wants to use it. It’s a bit easier then telling others to make
-their own pseudo-plugin, or worse things, like just sticking the code into
-their vimrc.
+Though this plugin was originally meant mostly for myself, I hope I've
+"polished" it up enough to give it the full "real plugin" status. Certain
+edge/common cases (visual mode & closed folds) did not work properly in the
+code as originally posted.
 
 It's worth noting that I still keep my hands on the home row, even while
 using these mappings, by use of a Windows program called touchcursor, found
@@ -44,37 +58,133 @@ here:
 ------------------------------------------------------------------------------
 MAPPINGS                                          *ArrowKeyRepurpose-mappings*
 
+While I hope the default mappings are sensible, and indeed are "eponymous" to
+the plugin, many people will still want to have this plugin's functionality
+without having to remove their hands from the home row. For this reason,
+several settings are provided for controlling what gets mapped and whether it
+does. See |ArrowKeyRepurpose-settings| for more information.
+
+Below are the defaults and the <plug> mappings they are equivalent to. Note
+the string "[mode]" on the end of the <plug> mappings. This is equivalent to
+either "normal", "visual", or "insert". Please Note that remapping to the
+insert versions requires prepending the <plug> mapping with <esc>.
+
+
 <Left>
-		Unindents current line or selection by one level. Works in
-                normal, visual, and insert mode.
+		Shifts your text left.
+
+		Unindents current line, selection, or closed fold by one
+		level. Works in normal, visual, and insert mode.
+
 
 <Right>
-		Indents current line or selection by one level. Works in
-                normal, visual, and insert mode. 
+		Shifts your text right.
+
+		Indents current line, selection, or closed fold by one level.
+		Works in normal, visual, and insert mode.
+
 
 <Up>
-		If the line above the current cursor position or selection is
-		empty (or contains only white space), deletes it.
+<plug>ArrowKeyRepurp_DelEmptyLineAbove_[mode]
+
+		Shifts your text up.
+
+		If the line above the current cursor position, selection, or
+		closed fold is empty (or contains only white space), deletes
+		it.
+
 
 <Down>
-		Adds an empty line below the current cursor position or
-		selection.
+<plug>ArrowKeyRepurp_AddEmptyLineAbove_[mode]
+
+		Shifts your text down.
+
+		Adds an empty line above the current cursor position, closed
+		fold, or selection.
+
 
 <S-Up>
-		If the line below the current cursor position or selection is
-		empty (or contains only white space), deletes it.
+<plug>ArrowKeyRepurp_DelEmptyLineBelow_[mode]
+
+		Shifts the text below your text up.
+
+		If the line below the current cursor position, selection, or
+		closed fold is empty (or contains only white space), deletes
+		it.
+
 
 <S-Down>
-		Adds an empty line below the current cursor position or
-		selection.
+<plug>ArrowKeyRepurp_AddEmptyLineBelow_[mode]
+
+		Shifts the text below your text down.
+
+		Adds an empty line below the current cursor position,
+		selection, or closed fold.
+
+		Please note that this may work a little confusingly (but still
+		correctly) in the event you use it with a closed fold that is
+		not terminated by a fold-closing marker (assuming
+		foldmethod=marker). Such fold regions, when appended with a
+		blank line, will then include that blank line. Repeating this
+		command may seem to have no effect, but the new lines are
+		being added INSIDE the folded region. Because of this, the
+		counterpart mapping (<S-Up>) will NOT remove them.
+
 
 <S-Left>
 		Decrease current window width by N (default 1). Just a remap
-		of Vim's 'CTRL-W <'
+		of Vim's 'CTRL-W <'. Normal mode only.
+
 
 <S-Right>
 		Increase current window width by N (default 1). Just a remap
-		of Vim's 'CTRL-W >'
+		of Vim's 'CTRL-W >'. Normal mode only.
+
+------------------------------------------------------------------------------
+SETTINGS                                          *ArrowKeyRepurpose-settings*
+
+Settings for ArrowKeyRepurpose are contained in the dictionary
+g:ArrowKeyRepurp_settings. This variable is not created until after your vimrc
+is sourced, so create it and populate it with whatever (correctly formed)
+values you want, and they will not be overwritten.
+
+As a shorthand, the headings below are implicitly members of
+g:ArrowKeyRepurp_settings. Their defaults are given.
+
+
+do_map_arrows = 1
+
+		Whether to map the arrow keys. This does not include whether
+		shifted arrow keys will be mapped or not.
+
+
+do_map_shift_updown = 1
+
+		Whether to map <S-Up> and <S-Down>.
+
+
+do_map_shift_leftright = 1
+
+		Whether to map <s-left> and <s-right>. Considering the
+		function of these keys is very different from that of the rest
+		of the mappings, it makes a lot of sense that someone may want
+		to turn off this functionality.
+
+------------------------------------------------------------------------------
+CHANGELOG                                        *ArrowKeyRepurpose-changelog*
+
+- 1.0~
+	- Now works properly with visual selections & folded regions.
+		( wasn't so much a bug as it was absent, elaborate
+		  functionality, i.e. original version was "naive"
+		  implementation. On purpose: was beyond scope of little
+		  internet tip. )
+	- User changeable settings. Turn off portions of the functionality.
+	- Some functionality was undone by <nop> mappings. fixed.
+		( Just had to grok what was going on. Very simple, very
+		  silly. )
+
+- Initial Release (unnumbered)~
 
 ------------------------------------------------------------------------------
 LICENSE                                            *ArrowKeyRepurpose-license*
