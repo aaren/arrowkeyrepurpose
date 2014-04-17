@@ -32,18 +32,18 @@ this page:
 
 	http://vim.wikia.com/wiki/Quickly_adding_and_deleting_empty_lines
 
-on the vim wiki, then modified by myself for my own purposes.
+on the vim wiki, then modified and improved by myself.
 
 This plugin is mostly for shifting your text around. Up and down move the
-current line thusly by adding and removing empty lines from above it, and shift
-plus up and down will add and remove empty lines below. Right and left unifies
-Vim's built-in mappings for indenting and unindenting in normal, visual, and
-insert mode.
+current line/selection thusly by adding and removing empty lines from above
+it, and shift plus up and down will add and remove empty lines below. Right
+and left unifies Vim's built-in mappings for indenting and unindenting in
+normal, visual, and insert mode.
 
-This plugin is meant mostly to serve myself, but I’m making it public in case
-someone else wants to use it. It’s a bit easier then telling others to make
-their own pseudo-plugin, or worse things, like just sticking the code into
-their vimrc.
+Though this plugin was originally meant mostly for myself, I hope I've
+"polished" it up enough to give it the full "real plugin" status. Certain
+edge/common cases (visual mode & closed folds) did not work properly in the
+code as originally posted.
 
 It's worth noting that I still keep my hands on the home row, even while
 using these mappings, by use of a Windows program called touchcursor, found
