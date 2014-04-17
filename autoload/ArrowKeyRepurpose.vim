@@ -61,7 +61,7 @@ function! ArrowKeyRepurpose#DelEmptyLineBelow(...) "-v-
 	endif
 endfunction "-^-
 
-function! ArrowKeyRepurpose#AddEmptyLineBelow() "-v-
+function! ArrowKeyRepurpose#AddEmptyLineBelow(...) "-v-
 	let l:is_visual = a:0 ? a:1 : 0
 	
 	if l:is_visual
@@ -72,7 +72,7 @@ function! ArrowKeyRepurpose#AddEmptyLineBelow() "-v-
 		let l:line_to_add = line('.')
 	endif
 	
-	call append(line("."), "")
+	call append(l:line_to_add, "")
 endfunction "-^-
 
 " Arrow key remapping: Up/Dn = move line up/dn; Left/Right = indent/unindent
@@ -88,10 +88,10 @@ function! ArrowKeyRepurpose#SetArrowKeysAsTextShifters() "-v-
 	" visual mode"-v-
 	vmap <silent> <Left> <
 	vmap <silent> <Right> >
-	vnoremap <silent> <Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineAbove()<CR>gv
-	vnoremap <silent> <Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineAbove()<CR>gv
-	vnoremap <silent> <S-Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineBelow()<CR>gv
-	vnoremap <silent> <S-Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineBelow()<CR>gv
+	vnoremap <silent> <Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineAbove(1)<CR>gv
+	vnoremap <silent> <Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineAbove(1)<CR>gv
+	vnoremap <silent> <S-Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineBelow(1)<CR>gv
+	vnoremap <silent> <S-Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineBelow(1)<CR>gv
 	"-^-
 	" insert mode -v-
 	imap <silent> <Left> <C-D>
