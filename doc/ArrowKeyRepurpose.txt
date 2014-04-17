@@ -68,17 +68,23 @@ insert versions requires prepending the <plug> mapping with <esc>.
 
 
 <Left>
+		Shifts your text left.
+
 		Unindents current line, selection, or closed fold by one
 		level. Works in normal, visual, and insert mode.
 
 
 <Right>
+		Shifts your text right.
+
 		Indents current line, selection, or closed fold by one level.
 		Works in normal, visual, and insert mode.
 
 
 <Up>
 <plug>ArrowKeyRepurp_DelEmptyLineAbove_[mode]
+
+		Shifts your text up.
 
 		If the line above the current cursor position, selection, or
 		closed fold is empty (or contains only white space), deletes
@@ -88,12 +94,16 @@ insert versions requires prepending the <plug> mapping with <esc>.
 <Down>
 <plug>ArrowKeyRepurp_AddEmptyLineAbove_[mode]
 
+		Shifts your text down.
+
 		Adds an empty line above the current cursor position, closed
 		fold, or selection.
 
 
 <S-Up>
 <plug>ArrowKeyRepurp_DelEmptyLineBelow_[mode]
+
+		Shifts the text below your text up.
 
 		If the line below the current cursor position, selection, or
 		closed fold is empty (or contains only white space), deletes
@@ -102,6 +112,8 @@ insert versions requires prepending the <plug> mapping with <esc>.
 
 <S-Down>
 <plug>ArrowKeyRepurp_AddEmptyLineBelow_[mode]
+
+		Shifts the text below your text down.
 
 		Adds an empty line below the current cursor position,
 		selection, or closed fold.
