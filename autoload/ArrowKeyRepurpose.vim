@@ -69,19 +69,6 @@ function! ArrowKeyRepurpose#SetArrowKeysAsTextShifters() "-v-
 	inoremap <silent> <S-Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineBelow()<CR>a
 	inoremap <silent> <S-Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineBelow()<CR>a
 	"-^-
-	" disable modified versions we are not using -v-
-	"nnoremap  <S-Up>     <NOP>
-	"nnoremap  <S-Down>   <NOP>
-	"nnoremap  <S-Left>   <NOP>
-	"nnoremap  <S-Right>  <NOP>
-	vnoremap  <S-Up>     <NOP>
-	vnoremap  <S-Down>   <NOP>
-	vnoremap  <S-Left>   <NOP>
-	vnoremap  <S-Right>  <NOP>
-	inoremap  <S-Up>     <NOP>
-	inoremap  <S-Down>   <NOP>
-	inoremap  <S-Left>   <NOP>
-	inoremap  <S-Right>  <NOP>
 "-^-
 endfunction "-^-
 
