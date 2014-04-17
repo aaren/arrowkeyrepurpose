@@ -106,6 +106,15 @@ insert versions requires prepending the <plug> mapping with <esc>.
 		Adds an empty line below the current cursor position,
 		selection, or closed fold.
 
+		Please note that this may work a little confusingly (but still
+		correctly) in the event you use it with a closed fold that is
+		not terminated by a fold-closing marker (assuming
+		foldmethod=marker). Such fold regions, when appended with a
+		blank line, will then include that blank line. Repeating this
+		command may seem to have no effect, but the new lines are
+		being added INSIDE the folded region. Because of this, the
+		counterpart mapping (<S-Up>) will NOT remove them.
+
 
 <S-Left>
 		Decrease current window width by N (default 1). Just a remap
