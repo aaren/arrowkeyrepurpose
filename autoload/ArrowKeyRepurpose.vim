@@ -89,30 +89,31 @@ noremap <plug>ArrowKeyRepurp_AddEmptyLineBelow_insert :call ArrowKeyRepurpose#Ad
 
 " Arrow key remapping: Up/Dn = move line up/dn; Left/Right = indent/unindent
 function! ArrowKeyRepurpose#SetArrowKeysAsTextShifters() "-v-
-	" normal mode -v-
 	nnoremap <silent> <Left>   <<
 	nnoremap <silent> <Right>  >>
 	nmap     <silent> <Up>     <plug>ArrowKeyRepurp_DelEmptyLineAbove_normal
 	nmap     <silent> <Down>   <plug>ArrowKeyRepurp_AddEmptyLineAbove_normal
-	nmap     <silent> <S-Up>   <plug>ArrowKeyRepurp_DelEmptyLineBelow_normal
-	nmap     <silent> <S-Down> <plug>ArrowKeyRepurp_AddEmptyLineBelow_normal
-	"-^-
-	" visual mode"-v-
+	
 	vnoremap <silent> <Left>   <gv
 	vnoremap <silent> <Right>  >gv
 	vmap     <silent> <Up>     <plug>ArrowKeyRepurp_DelEmptyLineAbove_visual
 	vmap     <silent> <Down>   <plug>ArrowKeyRepurp_AddEmptyLineAbove_visual
-	vmap     <silent> <S-Up>   <plug>ArrowKeyRepurp_DelEmptyLineBelow_visual
-	vmap     <silent> <S-Down> <plug>ArrowKeyRepurp_AddEmptyLineBelow_visual
-	"-^-
-	" insert mode -v-
+	
 	inoremap <silent> <Left>   <C-D>
 	inoremap <silent> <Right>  <C-T>
 	imap     <silent> <Up>     <esc><plug>ArrowKeyRepurp_DelEmptyLineAbove_insert
 	imap     <silent> <Down>   <esc><plug>ArrowKeyRepurp_AddEmptyLineAbove_insert
+endfunction "-^-
+
+function! ArrowKeyRepurpose#SetShiftUpDownAsTextShifters() "-v-
+	nmap     <silent> <S-Up>   <plug>ArrowKeyRepurp_DelEmptyLineBelow_normal
+	nmap     <silent> <S-Down> <plug>ArrowKeyRepurp_AddEmptyLineBelow_normal
+	
+	vmap     <silent> <S-Up>   <plug>ArrowKeyRepurp_DelEmptyLineBelow_visual
+	vmap     <silent> <S-Down> <plug>ArrowKeyRepurp_AddEmptyLineBelow_visual
+	
 	imap     <silent> <S-Up>   <esc><plug>ArrowKeyRepurp_DelEmptyLineBelow_insert
 	imap     <silent> <S-Down> <esc><plug>ArrowKeyRepurp_AddEmptyLineBelow_insert
-	"-^-
 endfunction "-^-
 
 function! ArrowKeyRepurpose#SetShiftLeftRightAsWindowResize() "-v-
