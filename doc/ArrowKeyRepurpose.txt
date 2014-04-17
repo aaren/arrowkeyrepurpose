@@ -54,37 +54,66 @@ here:
 ------------------------------------------------------------------------------
 MAPPINGS                                          *ArrowKeyRepurpose-mappings*
 
+While I hope the default mappings are sensible, and indeed are "eponymous" to
+the plugin, many people will still want to have this plugin's functionality
+without having to remove their hands from the home row. For this reason,
+several settings are provided for controlling what gets mapped and whether it
+does. See |ArrowKeyRepurpose-settings| for more information.
+
+Below are the defaults and the <plug> mappings they are equivalent to. Note
+the string "[mode]" on the end of the <plug> mappings. This is equivalent to
+either "normal", "visual", or "insert". Please Note that remapping to the
+insert versions requires prepending the <plug> mapping with <esc>.
+
+
 <Left>
-		Unindents current line or selection by one level. Works in
-                normal, visual, and insert mode.
+                Unindents current line, selection, or closed fold by one
+                level. Works in normal, visual, and insert mode.
+
 
 <Right>
-		Indents current line or selection by one level. Works in
-                normal, visual, and insert mode. 
+                Indents current line, selection, or closed fold by one level.
+                Works in normal, visual, and insert mode.
+
 
 <Up>
-		If the line above the current cursor position or selection is
-		empty (or contains only white space), deletes it.
+<plug>ArrowKeyRepurp_DelEmptyLineAbove_[mode]
+
+                If the line above the current cursor position, selection, or
+                closed fold is empty (or contains only white space), deletes
+                it.
+
 
 <Down>
-		Adds an empty line below the current cursor position or
-		selection.
+<plug>ArrowKeyRepurp_AddEmptyLineAbove_[mode]
+
+		Adds an empty line above the current cursor position, closed
+                fold, or selection.
+
 
 <S-Up>
-		If the line below the current cursor position or selection is
-		empty (or contains only white space), deletes it.
+<plug>ArrowKeyRepurp_DelEmptyLineBelow_[mode]
+
+                If the line below the current cursor position, selection, or
+                closed fold is empty (or contains only white space), deletes
+                it.
+
 
 <S-Down>
-		Adds an empty line below the current cursor position or
-		selection.
+<plug>ArrowKeyRepurp_AddEmptyLineBelow_[mode]
+
+		Adds an empty line below the current cursor position,
+                selection, or closed fold.
+
 
 <S-Left>
 		Decrease current window width by N (default 1). Just a remap
-		of Vim's 'CTRL-W <'
+		of Vim's 'CTRL-W <'. Normal mode only.
+
 
 <S-Right>
 		Increase current window width by N (default 1). Just a remap
-		of Vim's 'CTRL-W >'
+		of Vim's 'CTRL-W >'. Normal mode only.
 
 ------------------------------------------------------------------------------
 LICENSE                                            *ArrowKeyRepurpose-license*
