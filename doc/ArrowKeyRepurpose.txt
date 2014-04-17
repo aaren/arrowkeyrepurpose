@@ -8,7 +8,7 @@ For most vim versions. Help file last change: 2014-03-18
             / ___ |/ /  / /  / /_/ / |/ |/ /_____/ /| /  __/ /_/ /           ~
            /_/  |_/_/  /_/   \____/|__/|__/     /_/ |_\___/\__, /            ~
                  ____                                     /____/             ~
-                / __ \___  ____  __  ___________  ____  ________             ~
+		/ __ \___  ____  __  ___________  ____  ________             ~
                / /_/ / _ \/ __ \/ / / / ___/ __ \/ __ \/ ___/ _ \            ~
               / _, _/  __/ /_/ / /_/ / /  / /_/ / /_/ (__  )  __/            ~
              /_/ |_|\___/ .___/\__,_/_/  / .___/\____/____/\___/             ~
@@ -68,43 +68,43 @@ insert versions requires prepending the <plug> mapping with <esc>.
 
 
 <Left>
-                Unindents current line, selection, or closed fold by one
-                level. Works in normal, visual, and insert mode.
+		Unindents current line, selection, or closed fold by one
+		level. Works in normal, visual, and insert mode.
 
 
 <Right>
-                Indents current line, selection, or closed fold by one level.
-                Works in normal, visual, and insert mode.
+		Indents current line, selection, or closed fold by one level.
+		Works in normal, visual, and insert mode.
 
 
 <Up>
 <plug>ArrowKeyRepurp_DelEmptyLineAbove_[mode]
 
-                If the line above the current cursor position, selection, or
-                closed fold is empty (or contains only white space), deletes
-                it.
+		If the line above the current cursor position, selection, or
+		closed fold is empty (or contains only white space), deletes
+		it.
 
 
 <Down>
 <plug>ArrowKeyRepurp_AddEmptyLineAbove_[mode]
 
 		Adds an empty line above the current cursor position, closed
-                fold, or selection.
+		fold, or selection.
 
 
 <S-Up>
 <plug>ArrowKeyRepurp_DelEmptyLineBelow_[mode]
 
-                If the line below the current cursor position, selection, or
-                closed fold is empty (or contains only white space), deletes
-                it.
+		If the line below the current cursor position, selection, or
+		closed fold is empty (or contains only white space), deletes
+		it.
 
 
 <S-Down>
 <plug>ArrowKeyRepurp_AddEmptyLineBelow_[mode]
 
 		Adds an empty line below the current cursor position,
-                selection, or closed fold.
+		selection, or closed fold.
 
 
 <S-Left>
