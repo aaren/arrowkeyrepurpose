@@ -2,44 +2,76 @@
 "│-v-1 │ Main functionality
 "└─────┴────────────────────
 
-function! ArrowKeyRepurpose#DelEmptyLineAbove() "-v-
-	if line(".") == 1
-		return
+function! ArrowKeyRepurpose#DelEmptyLineAbove(...) "-v-
+	let l:is_visual = a:0 ? a:1 : 0
+	
+	if l:is_visual
+		let l:line_to_del = line("'<") - 1
+	elseif foldclosed('.') != -1
+		let l:line_to_del = foldclosed('.') - 1
+	else
+		let l:line_to_del = line('.') - 1
 	endif
-	let l:line = getline(line(".") - 1)
-	if l:line =~ '^\s*$'
+	
+	if (l:line_to_del >= 1) && (getline(l:line_to_del) =~ '^\s*$')
 		let l:colsave = col(".")
-		.-1d
+		exe ":" . l:line_to_del . "delete"
 		silent normal! <C-y>
 		call cursor(line("."), l:colsave)
 	endif
 endfunction "-^-
 
-function! ArrowKeyRepurpose#AddEmptyLineAbove() "-v-
+function! ArrowKeyRepurpose#AddEmptyLineAbove(...) "-v-
+	let l:is_visual = a:0 ? a:1 : 0
+	
+	if l:is_visual
+		let l:line_to_add = line("'<") - 1
+	elseif foldclosed('.') != -1
+		let l:line_to_add = foldclosed('.') - 1
+	else
+		let l:line_to_add = line('.') - 1
+	endif
+	
 	let l:scrolloffsave = &scrolloff
 	" Avoid jerky scrolling with ^E at top of window
 	set scrolloff=0
-	call append(line(".") - 1, "")
+	call append(l:line_to_add, "")
 	if winline() != winheight(0)
 		silent normal! <C-e>
 	endif
 	let &scrolloff = l:scrolloffsave
 endfunction "-^-
 
-function! ArrowKeyRepurpose#DelEmptyLineBelow() "-v-
-	if line(".") == line("$")
-		return
+function! ArrowKeyRepurpose#DelEmptyLineBelow(...) "-v-
+	let l:is_visual = a:0 ? a:1 : 0
+	
+	if l:is_visual
+		let l:line_to_del = line("'>") + 1
+	elseif foldclosedend('.') != -1
+		let l:line_to_del = foldclosedend('.') + 1
+	else
+		let l:line_to_del = line('.') + 1
 	endif
-	let l:line = getline(line(".") + 1)
-	if l:line =~ '^\s*$'
+	
+	if (l:line_to_del <= line("$")) && (getline(l:line_to_del) =~ '^\s*$')
 		let l:colsave = col(".")
-		.+1d
+		exe ":" . l:line_to_del . "delete"
 		''
 		call cursor(line("."), l:colsave)
 	endif
 endfunction "-^-
 
 function! ArrowKeyRepurpose#AddEmptyLineBelow() "-v-
+	let l:is_visual = a:0 ? a:1 : 0
+	
+	if l:is_visual
+		let l:line_to_add = line("'>")
+	elseif foldclosedend('.') != -1
+		let l:line_to_add = foldclosedend('.')
+	else
+		let l:line_to_add = line('.')
+	endif
+	
 	call append(line("."), "")
 endfunction "-^-
 
