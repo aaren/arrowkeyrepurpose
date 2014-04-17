@@ -5,6 +5,7 @@ endif
 
 if g:ArrowKeyRepurpose_do_mappings
 	call ArrowKeyRepurpose#SetArrowKeysAsTextShifters()
+	call ArrowKeyRepurpose#SetShiftLeftRightAsWindowResize()
 endif
 
 " -v-1 modeline

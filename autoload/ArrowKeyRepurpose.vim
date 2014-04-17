@@ -20,6 +20,9 @@ function! ArrowKeyRepurpose#DelEmptyLineAbove(...) "-v-
 		call cursor(line("."), l:colsave)
 	endif
 endfunction "-^-
+noremap <plug>ArrowKeyRepurp_DelEmptyLineAbove_normal <Esc>:call ArrowKeyRepurpose#DelEmptyLineAbove()<CR>
+noremap <plug>ArrowKeyRepurp_DelEmptyLineAbove_visual <Esc>:call ArrowKeyRepurpose#DelEmptyLineAbove(1)<CR>gv
+noremap <plug>ArrowKeyRepurp_DelEmptyLineAbove_insert :call ArrowKeyRepurpose#DelEmptyLineAbove()<CR>a
 
 function! ArrowKeyRepurpose#AddEmptyLineAbove(...) "-v-
 	let l:is_visual = a:0 ? a:1 : 0
@@ -41,6 +44,9 @@ function! ArrowKeyRepurpose#AddEmptyLineAbove(...) "-v-
 	endif
 	let &scrolloff = l:scrolloffsave
 endfunction "-^-
+noremap <plug>ArrowKeyRepurp_AddEmptyLineAbove_normal <Esc>:call ArrowKeyRepurpose#AddEmptyLineAbove()<CR>
+noremap <plug>ArrowKeyRepurp_AddEmptyLineAbove_visual <Esc>:call ArrowKeyRepurpose#AddEmptyLineAbove(1)<CR>gv
+noremap <plug>ArrowKeyRepurp_AddEmptyLineAbove_insert :call ArrowKeyRepurpose#AddEmptyLineAbove()<CR>a
 
 function! ArrowKeyRepurpose#DelEmptyLineBelow(...) "-v-
 	let l:is_visual = a:0 ? a:1 : 0
@@ -60,6 +66,9 @@ function! ArrowKeyRepurpose#DelEmptyLineBelow(...) "-v-
 		call cursor(line("."), l:colsave)
 	endif
 endfunction "-^-
+noremap <plug>ArrowKeyRepurp_DelEmptyLineBelow_normal <Esc>:call ArrowKeyRepurpose#DelEmptyLineBelow()<CR>
+noremap <plug>ArrowKeyRepurp_DelEmptyLineBelow_visual <Esc>:call ArrowKeyRepurpose#DelEmptyLineBelow(1)<CR>gv
+noremap <plug>ArrowKeyRepurp_DelEmptyLineBelow_insert :call ArrowKeyRepurpose#DelEmptyLineBelow()<CR>a
 
 function! ArrowKeyRepurpose#AddEmptyLineBelow(...) "-v-
 	let l:is_visual = a:0 ? a:1 : 0
@@ -74,33 +83,41 @@ function! ArrowKeyRepurpose#AddEmptyLineBelow(...) "-v-
 	
 	call append(l:line_to_add, "")
 endfunction "-^-
+noremap <plug>ArrowKeyRepurp_AddEmptyLineBelow_normal <Esc>:call ArrowKeyRepurpose#AddEmptyLineBelow()<CR>
+noremap <plug>ArrowKeyRepurp_AddEmptyLineBelow_visual <Esc>:call ArrowKeyRepurpose#AddEmptyLineBelow(1)<CR>gv
+noremap <plug>ArrowKeyRepurp_AddEmptyLineBelow_insert :call ArrowKeyRepurpose#AddEmptyLineBelow()<CR>a
 
 " Arrow key remapping: Up/Dn = move line up/dn; Left/Right = indent/unindent
 function! ArrowKeyRepurpose#SetArrowKeysAsTextShifters() "-v-
 	" normal mode -v-
-	nmap <silent> <Left> <<
-	nmap <silent> <Right> >>
-	nnoremap <silent> <Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineAbove()<CR>
-	nnoremap <silent> <Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineAbove()<CR>
-	nnoremap <silent> <S-Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineBelow()<CR>
-	nnoremap <silent> <S-Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineBelow()<CR>
+	nnoremap <silent> <Left>   <<
+	nnoremap <silent> <Right>  >>
+	nmap     <silent> <Up>     <plug>ArrowKeyRepurp_DelEmptyLineAbove_normal
+	nmap     <silent> <Down>   <plug>ArrowKeyRepurp_AddEmptyLineAbove_normal
+	nmap     <silent> <S-Up>   <plug>ArrowKeyRepurp_DelEmptyLineBelow_normal
+	nmap     <silent> <S-Down> <plug>ArrowKeyRepurp_AddEmptyLineBelow_normal
 	"-^-
 	" visual mode"-v-
-	vmap <silent> <Left> <
-	vmap <silent> <Right> >
-	vnoremap <silent> <Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineAbove(1)<CR>gv
-	vnoremap <silent> <Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineAbove(1)<CR>gv
-	vnoremap <silent> <S-Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineBelow(1)<CR>gv
-	vnoremap <silent> <S-Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineBelow(1)<CR>gv
+	vnoremap <silent> <Left>   <gv
+	vnoremap <silent> <Right>  >gv
+	vmap     <silent> <Up>     <plug>ArrowKeyRepurp_DelEmptyLineAbove_visual
+	vmap     <silent> <Down>   <plug>ArrowKeyRepurp_AddEmptyLineAbove_visual
+	vmap     <silent> <S-Up>   <plug>ArrowKeyRepurp_DelEmptyLineBelow_visual
+	vmap     <silent> <S-Down> <plug>ArrowKeyRepurp_AddEmptyLineBelow_visual
 	"-^-
 	" insert mode -v-
-	imap <silent> <Left> <C-D>
-	imap <silent> <Right> <C-T>
-	inoremap <silent> <Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineAbove()<CR>a
-	inoremap <silent> <Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineAbove()<CR>a
-	inoremap <silent> <S-Up> <Esc>:call ArrowKeyRepurpose#DelEmptyLineBelow()<CR>a
-	inoremap <silent> <S-Down> <Esc>:call ArrowKeyRepurpose#AddEmptyLineBelow()<CR>a
+	inoremap <silent> <Left>   <C-D>
+	inoremap <silent> <Right>  <C-T>
+	imap     <silent> <Up>     <esc><plug>ArrowKeyRepurp_DelEmptyLineAbove_insert
+	imap     <silent> <Down>   <esc><plug>ArrowKeyRepurp_AddEmptyLineAbove_insert
+	imap     <silent> <S-Up>   <esc><plug>ArrowKeyRepurp_DelEmptyLineBelow_insert
+	imap     <silent> <S-Down> <esc><plug>ArrowKeyRepurp_AddEmptyLineBelow_insert
 	"-^-
+endfunction "-^-
+
+function! ArrowKeyRepurpose#SetShiftLeftRightAsWindowResize() "-v-
+	nnoremap <S-Left> <C-W><
+	nnoremap <S-Right> <C-W>>
 endfunction "-^-
 
 " -v-1 modeline
