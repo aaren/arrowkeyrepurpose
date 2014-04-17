@@ -16,12 +16,15 @@ For most vim versions. Help file last change: 2014-04-17
 
            'Cause this plugin totally calls for elaborate ascii art
 
+				 version 1.0
+
 ==============================================================================
 CONTENTS                                          *ArrowKeyRepurpose-contents*
     1. Intro                         |ArrowKeyRepurpose|
     2. Mappings                      |ArrowKeyRepurpose-mappings|
     3. Settings                      |ArrowKeyRepurpose-settings|
-    4. License                       |ArrowKeyRepurpose-license|
+    4. Changelog                     |ArrowKeyRepurpose-changelog|
+    5. License                       |ArrowKeyRepurpose-license|
 
 ==============================================================================
 
@@ -166,6 +169,22 @@ do_map_shift_leftright = 1
 		function of these keys is very different from that of the rest
 		of the mappings, it makes a lot of sense that someone may want
 		to turn off this functionality.
+
+------------------------------------------------------------------------------
+CHANGELOG                                        *ArrowKeyRepurpose-changelog*
+
+- 1.0~
+	- Now works properly with visual selections & folded regions.
+		( wasn't so much a bug as it was absent, elaborate
+		  functionality, i.e. original version was "naive"
+		  implementation. On purpose: was beyond scope of little
+		  internet tip. )
+	- User changeable settings. Turn off portions of the functionality.
+	- Some functionality was undone by <nop> mappings. fixed.
+		( Just had to grok what was going on. Very simple, very
+		  silly. )
+
+- Initial Release (unnumbered)~
 
 ------------------------------------------------------------------------------
 LICENSE                                            *ArrowKeyRepurpose-license*
