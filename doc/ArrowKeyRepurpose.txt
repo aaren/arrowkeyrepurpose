@@ -20,7 +20,8 @@ For most vim versions. Help file last change: 2014-03-18
 CONTENTS                                          *ArrowKeyRepurpose-contents*
     1. Intro                         |ArrowKeyRepurpose|
     2. Mappings                      |ArrowKeyRepurpose-mappings|
-    3. License                       |ArrowKeyRepurpose-license|
+    3. Settings                      |ArrowKeyRepurpose-settings|
+    4. License                       |ArrowKeyRepurpose-license|
 
 ==============================================================================
 
@@ -114,6 +115,36 @@ insert versions requires prepending the <plug> mapping with <esc>.
 <S-Right>
 		Increase current window width by N (default 1). Just a remap
 		of Vim's 'CTRL-W >'. Normal mode only.
+
+------------------------------------------------------------------------------
+SETTINGS                                          *ArrowKeyRepurpose-settings*
+
+Settings for ArrowKeyRepurpose are contained in the dictionary
+g:ArrowKeyRepurp_settings. This variable is not created until after your vimrc
+is sourced, so create it and populate it with whatever (correctly formed)
+values you want, and they will not be overwritten.
+
+As a shorthand, the headings below are implicitly members of
+g:ArrowKeyRepurp_settings. Their defaults are given.
+
+
+do_map_arrows = 1
+
+		Whether to map the arrow keys. This does not include whether
+		shifted arrow keys will be mapped or not.
+
+
+do_map_shift_updown = 1
+
+		Whether to map <S-Up> and <S-Down>.
+
+
+do_map_shift_leftright = 1
+
+		Whether to map <s-left> and <s-right>. Considering the
+		function of these keys is very different from that of the rest
+		of the mappings, it makes a lot of sense that someone may want
+		to turn off this functionality.
 
 ------------------------------------------------------------------------------
 LICENSE                                            *ArrowKeyRepurpose-license*
